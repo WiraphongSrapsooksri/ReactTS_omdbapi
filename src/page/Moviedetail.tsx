@@ -138,7 +138,7 @@ const Moviedetail = ({ movie }: { movie: MovieModel }) => {
           justifyContent: "start",
           alignItems: "center",
           fontSize: "18px",
-          marginTop:10
+          
         }}
       >
         <Grid
@@ -219,10 +219,10 @@ const Moviedetail = ({ movie }: { movie: MovieModel }) => {
   const rowone = () => (
     <Grid container spacing={0} sx={{ height: "84px" }}>
       <Grid item xs={6}>
-        <p style={{margin:0}}>{movie.imdbID}</p>
+        <p style={{ margin: 0 }}>{movie.imdbID}</p>
         <Typography variant="h4">{movie?.Title}</Typography>
         <Box sx={{ display: "flex" }}>
-          <p style={{margin:0}}> 
+          <p style={{ margin: 0 }}>
             {movie?.Year} &bull; {movie?.Rated} &bull; {movie?.Runtime}
           </p>
         </Box>

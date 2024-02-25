@@ -59,7 +59,7 @@ export default function MainPage() {
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
-    if (newValue === "3") {
+    if (newValue === "1") {
       // If the "Movie" tab is clicked, reset to the first page
       setCurrentPage(1);
     }
@@ -329,7 +329,7 @@ export default function MainPage() {
   };
 
   const clearData = () => {
-    console.log("cleardata");
+    
     setisbttclear(true);
     setMovie(null);
     setPlot("");
@@ -344,7 +344,8 @@ export default function MainPage() {
       setLoading(true);
       const url = `https://www.omdbapi.com/?apikey=b70cd313&t=${TitleRef.current?.value}&y=${YearRef.current?.value}&plot=${Plot}&r=${Response}`;
       const response = await axios.get<MovieModel>(url);
-
+      console.log(response.data);
+      
       if (response.data && response.data.Response === "True") {
         setLoading(false);
         setMovie(response.data);
@@ -375,17 +376,17 @@ export default function MainPage() {
       if (response.data && response.data.Response === "True") {
         setLoading(false);
         setMovieCard(response.data);
-        setisbttclear(false);
-        setisshowNLLfetchData(false);
+        // setisbttclear(false);
+        // setisshowNLLfetchData(false);
       } else {
         setLoading(false);
         setMovieCard(null);
-        setisshowNLLfetchData(true);
+        // setisshowNLLfetchData(true);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
 
-      setisshowNLLfetchData(true);
+      // setisshowNLLfetchData(true);
     } finally {
       setLoading(false);
     }
@@ -397,21 +398,22 @@ export default function MainPage() {
       // const url = `https://www.omdbapi.com/?apikey=b70cd313&s=all`;
       const url = `https://www.omdbapi.com/?apikey=b70cd313&t=${Title}`;
       const response = await axios.get<MovieModel>(url);
-
+      console.log(response.data);
+      
       if (response.data && response.data.Response === "True") {
         setLoading(false);
         setSelectedMovie(response.data);
-        setisbttclear(false);
-        setisshowNLLfetchData(false);
+        // setisbttclear(false);
+        // setisshowNLLfetchData(false);
       } else {
         setLoading(false);
         setMovieCard(null);
-        setisshowNLLfetchData(true);
+        // setisshowNLLfetchData(true);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
 
-      setisshowNLLfetchData(true);
+      // setisshowNLLfetchData(true);
     } finally {
       setLoading(false);
     }
@@ -435,8 +437,18 @@ export default function MainPage() {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
               >
-                <Tab className="labelby" label="By Title" value="3" />
-                <Tab className="labelby" label="By ID" value="2" />
+                <Tab
+                  className="labelby"
+                  label="By Title"
+                  value="3"
+                  onClick={() => setisbttclear(true)}
+                />
+                <Tab
+                  className="labelby"
+                  label="By ID"
+                  value="2"
+                  onClick={() => setisbttclear(true)}
+                />
                 <Tab
                   className="Movie"
                   label="Movie"
@@ -465,23 +477,6 @@ export default function MainPage() {
               </p>
             </TabPanel>
             <TabPanel value="1">
-              {" "}
-              {/* <Dialog
-                open={dialogOpen}
-                onClose={() => setDialogOpen(false)}
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  maxWidth: "none",
-                  maxHeight: "none",
-                }}
-              >
-                {selectedMovie && (
-                  <DialogContent>
-                    <Moviedetail movie={selectedMovie} />
-                  </DialogContent>
-                )}
-              </Dialog> */}
               <Drawer
                 anchor="bottom"
                 open={dialogOpen}
