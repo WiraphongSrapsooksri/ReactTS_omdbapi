@@ -309,7 +309,7 @@ export default function MainPage() {
   const fetchDatabyid = async () => {
     try {
       setLoading(true);
-      const url = `https://www.omdbapi.com/?apikey=b70cd313&t=${TitleRef.current?.value}&plot=${Plot}&r=${Response}`;
+      const url = `https://www.omdbapi.com/?apikey=b70cd313&i=${TitleRef.current?.value}&plot=${Plot}&r=${Response}`;
       const response = await axios.get<MovieModel>(url);
       if (response.data && response.data.Response === "True") {
         setLoading(false);
