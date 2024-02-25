@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# HW4: เว็บค้นหาข้อมูลภาพยนต์ (5 คะแนน)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+เว็บแอปพลิเคชันนี้ใช้ API จาก [OMDb](https://www.omdbapi.com) เพื่อทำการค้นหาข้อมูลภาพยนต์
 
-Currently, two official plugins are available:
+## คุณลักษณะหลัก
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **ค้นหาภาพยนต์:**
+   - สามารถค้นหาภาพยนต์ได้โดยระบุเงื่อนไข เช่น ชื่อเรื่อง, บางส่วนของชื่อเรื่อง, หรือรหัส IMDb
+   - การแสดงผลการค้นหาแบ่งหน้าได้ แต่ละหน้ามี 10 เรื่อง
 
-## Expanding the ESLint configuration
+2. **แสดงผลการค้นหา:**
+   - การแสดงผลการค้นหาต้องถูกแบ่งหน้า
+   - แต่ละหน้ามี 10 เรื่อง
+   - การแสดงผลลัพธ์ต้องสวยงามและมี UX/UI ที่เหมาะสม
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+3. **แสดงข้อมูลภาพยนต์:**
+   - เมื่อเลือกภาพยนต์ เข้าสู่หน้าแสดงข้อมูลได้ถูกต้อง
 
-- Configure the top-level `parserOptions` property like this:
+4. **ตัวอย่างเว็บแอป:**
+   - https://reacttsomdbapi.web.app/
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## วิธีใช้
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. ดำเนินการติดตั้ง dependencies ด้วยคำสั่ง:
+   ```bash
+   npm install
